@@ -3,6 +3,10 @@ import numpy as np
 import pickle
 from tensorflow.keras.models import load_model 
 from audio_utils import extract_mfcc, plot_spectrogram
+import os
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+model_path = os.path.join(BASE_DIR, "02-model", "lstm_genre_model.h5")
+model = load_model(model_path)
 
 # Load model & encoder
 model = load_model("../02-model/lstm_genre_model.h5")
@@ -57,3 +61,5 @@ if uploaded_file:
     for i, prob in enumerate(prediction):
         genre = encoder.inverse_transform([i])[0]
         st.progress(float(prob), text=f"{genre}: {prob*100:.1f}%")
+
+
