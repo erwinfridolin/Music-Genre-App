@@ -1,0 +1,9 @@
+tensorflow==2.13.0
+streamlit 
+librosa
+numpy
+scikit-learn
+matplotlib
+soundfile
+joblib
+
